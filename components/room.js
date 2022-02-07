@@ -2,13 +2,13 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import { loadGLTFModel } from '../lib/model'
-import { DogSpinner, DogContainer } from './voxel-dog-loader'
+import { RoomSpinner, RoomContainer } from './room-loader'
 
 function easeOutCirc(x) {
   return Math.sqrt(1 - Math.pow(x - 1, 4))
 }
 
-const VoxelDog = () => {
+const Room = () => {
   const refContainer = useRef()
   const [loading, setLoading] = useState(true)
   const [renderer, setRenderer] = useState()
@@ -53,13 +53,13 @@ const VoxelDog = () => {
 
       // 640 -> 240
       // 8   -> 6
-      const scale = scH * 0.005 + 4.8
+      const scale = scH * 0.005 + 6.8
       const camera = new THREE.OrthographicCamera(
         -scale,
         scale,
         scale,
         -scale,
-        0.01,
+        0.000001,
         50000
       )
       camera.position.copy(initialCameraPosition)
@@ -74,7 +74,7 @@ const VoxelDog = () => {
       controls.target = target
       setControls(controls)
 
-      loadGLTFModel(scene, '/dog.glb', {
+      loadGLTFModel(scene, '/room.glb', {
         receiveShadow: false,
         castShadow: false
       }).then(() => {
@@ -93,7 +93,7 @@ const VoxelDog = () => {
           const p = initialCameraPosition
           const rotSpeed = -easeOutCirc(frame / 120) * Math.PI * 20
 
-          camera.position.y = 10
+          camera.position.y = 6
           camera.position.x =
             p.x * Math.cos(rotSpeed) + p.z * Math.sin(rotSpeed)
           camera.position.z =
@@ -122,8 +122,8 @@ const VoxelDog = () => {
   }, [renderer, handleWindowResize])
 
   return (
-    <DogContainer ref={refContainer}>{loading && <DogSpinner />}</DogContainer>
+    <RoomContainer ref={refContainer}>{loading && <RoomSpinner />}</RoomContainer>
   )
 }
 
-export default VoxelDog
+export default Room
