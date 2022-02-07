@@ -4,7 +4,7 @@ import Section from '../components/section';
 import { WorkGridItem } from '../components/grid-item';
 
 import thumbParser from '../public/images/works/parser.png';
-import thumbNotFound from '../public/images/works/notFound.png';
+
 
 const Works = () => (
   <Layout title="Works">
@@ -13,13 +13,13 @@ const Works = () => (
         Works
       </Heading>
 
-      <SimpleGrid columns={[1, 1, 1]} gap={6}>
+      {/* <SimpleGrid columns={[1, 1, 1]} gap={6}>
         <Section>
           <WorkGridItem id="notFound" title="Not Found" thumbnail={thumbNotFound}>
             NotFound
           </WorkGridItem>
         </Section>
-      </SimpleGrid>
+      </SimpleGrid> */}
 
       <Section delay={0.4}>
         <Divider my={6} />
@@ -31,7 +31,7 @@ const Works = () => (
 
       <SimpleGrid columns={[1, 1, 1]} gap={6}>
         <Section delay={0.5}>
-          <WorkGridItem id="pythonParcer" thumbnail={thumbParser} title="Universal parser">
+          <WorkGridItem id="python-parcer" thumbnail={thumbParser} title="Universal parser">
             Async IO Parser in Python
           </WorkGridItem>
         </Section>

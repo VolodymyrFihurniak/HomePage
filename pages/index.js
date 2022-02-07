@@ -43,12 +43,11 @@ const Home = () => (
           <List ml={10} my={6}>
             <ListItem>
               <Meta>JS (ES6) / NodeJS</Meta>
-              <Meta>React</Meta>
-              <Meta>Next</Meta>
-              <Meta>Vue</Meta>
+              <Meta>React, Next, Vue</Meta>
             </ListItem>
             <ListItem>
               <Meta>Python</Meta>
+              <Meta>Flask, Django</Meta>
             </ListItem>
             <ListItem>
               <Meta>C/C++</Meta>
@@ -165,14 +164,6 @@ const Home = () => (
             </Link>
           </ListItem>
         </List>
-
-        <Box align='center' my={4}>
-          <NextLink href='/posts'>
-            <Button rightIcon={<ChevronRightIcon />} colorScheme='teal'>
-              Popular posts
-            </Button>
-          </NextLink>
-        </Box>
       </Section>
     </Container>
   </Layout>
